@@ -23,7 +23,7 @@ public class ListJobRoute extends RouteBuilder {
 
 		from(FROM)
 			.routeId("kubernetes-joblist-client")
-			.toF("kubernetes-job:///{{kubernetes-master-url}}?oauthToken={{kubernetes-oauth-token:}}&operation=" + KubernetesOperations.LIST_JOB)
+			.toF("kubernetes-job:///dummyHost?kubernetesClient=#myKubernetesClient&operation=" + KubernetesOperations.LIST_JOB)
 			.log("We currently have ${body.size()} jobs.")
 			.to(resultEndpoint);
 	}
